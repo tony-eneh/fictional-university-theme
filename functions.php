@@ -11,4 +11,12 @@ function university_files()
     wp_enqueue_style('our-main-styles', get_theme_file_uri('/build/style-index.css'));
 }
 add_action('wp_enqueue_scripts', 'university_files');
+
+function university_features()
+{
+    // make title bar on each page display the name of the current page
+    add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'university_features');
 ?>
