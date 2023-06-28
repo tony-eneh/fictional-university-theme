@@ -14,16 +14,19 @@
         <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
         <div class="site-header__menu group">
           <nav class="main-navigation">
-            <?php wp_nav_menu( array(
-                'theme_location' => 'mainMenuLocation'
-            ) ); ?>
-            <!-- <ul>
-              <li><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
-              <li><a href="#">Programs</a></li>
+            <!-- TODO find another wp function to use to add active class without hardcoding page id for each link -->
+            <ul>
+                <!-- passing 0 to wp_get_post_parent_id behaves as though you passed in the id of the current page -->
+              <li <?php if (is_page( 'about-us' ) or wp_get_post_parent_id( 0 ) == 12) echo "class='current-menu-item'" ?>>
+                <a href="<?php echo site_url('/about-us') ?>">About Us</a>
+              </li>
+              <li <?php if (is_page( 'programmes' ) or wp_get_post_parent_id( 0 ) == 32 ) echo "class='current-menu-item'" ?>>
+                <a href="<?php echo site_url('/programmes') ?>">Programmes</a>
+              </li>
               <li><a href="#">Events</a></li>
               <li><a href="#">Campuses</a></li>
               <li><a href="#">Blog</a></li>
-            </ul> -->
+            </ul>
           </nav>
           <div class="site-header__util">
             <a href="#" class="btn btn--small btn--orange float-left push-right">Login</a>
