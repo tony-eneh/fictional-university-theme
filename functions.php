@@ -14,8 +14,14 @@ add_action('wp_enqueue_scripts', 'university_files');
 
 function university_features()
 {
+
     // make title bar on each page display the name of the current page
     add_theme_support('title-tag');
+    register_nav_menus( array(
+        'mainMenuLocation' => "Main Menu Location",
+        'footerMenuLocationOne' => "Footer Menu Location One",
+        "footerMenuLocationTwo" => "Footer Menu Location Two",
+    ) );
 }
 
 add_action('after_setup_theme', 'university_features');
